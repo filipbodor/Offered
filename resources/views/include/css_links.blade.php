@@ -1,0 +1,14 @@
+<link href="{{ asset('/css/main.css') }}" rel="stylesheet">
+<link href="{{ asset('/css/advertisements.css') }}" rel="stylesheet">
+<link href="{{ asset('/css/categories.css') }}" rel="stylesheet">
+<link href="{{ asset('/css/chat.css') }}" rel="stylesheet">
+<link href="{{ asset('/css/filter.css') }}" rel="stylesheet">
+<link href="{{ asset('/css/footer.css') }}" rel="stylesheet">
+<link href="{{ asset('/css/hamburger.css') }}" rel="stylesheet">
+<link href="{{ asset('/css/header.css') }}" rel="stylesheet">
+<link href="{{ asset('/css/pagination.css') }}" rel="stylesheet">
+<link href="{{ asset('/css/profile.css') }}" rel="stylesheet">
+<link href="{{ asset('/css/search.css') }}" rel="stylesheet">
+<link href="{{ asset('/css/sidebar.css') }}" rel="stylesheet">
+<link href="{{ asset('/css/star_rating.css') }}" rel="stylesheet">
+<link href="{{ asset('/css/suggestions.css') }}" rel="stylesheet">

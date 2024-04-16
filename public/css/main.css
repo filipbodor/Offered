@@ -1,0 +1,25 @@
+/* general */
+.color-darkgreen {
+    color: #00901e;
+}
+.color-darkgreen:hover {
+    color: #006b18;
+}
+
+.bg-darkgreen {
+    background-color: #00901e;
+    color: white;
+}
+.bg-darkgreen:hover {
+    background-color: #006b18;
+    color: #c0c0c0;
+}
+
+
+
+
+
+
+
+
+

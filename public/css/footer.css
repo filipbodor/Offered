@@ -1,0 +1,33 @@
+
+/* footer */
+
+.bezpodciar{
+    text-decoration: none;
+}
+
+.odkazy{
+    margin-top: 1em;
+}
+
+.farba{
+    background-color: #e6e6e6;
+    border-top: 4px solid #00901e;
+}
+
+.farba2{
+    background-color: #d9d9d9;
+
+}
+
+.weather-widget {
+    display: none;
+    padding: 20px;
+    margin: 20px;
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    text-align: center;
+}
+.weather-widget i {
+    font-size: 48px;
+    margin-bottom: 10px;
+}

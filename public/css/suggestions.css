@@ -1,0 +1,27 @@
+/* suggestion */
+
+.suggestions-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 1050;
+    max-height: 300px;
+    overflow-y: auto;
+    border-radius: 0 0 4px 4px;
+}
+
+.suggestions-container div {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.suggestions-container div:last-child {
+    border-bottom: none;
+}
+
+.suggestions-container div:hover {
+    background-color: #ececec;
+}

@@ -1,0 +1,54 @@
+/*search box css start here*/
+.suggestions-container {
+    position: absolute;
+}
+.suggestions-container div {
+    padding: 8px;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    z-index: 1000;
+}
+.suggestions-container div:hover {
+    background-color: #e2e2e2;
+}
+
+.search-con {
+    padding-bottom: 5%;
+    background-color: #DEE7DE;
+    margin-bottom: 5%;
+}
+
+.search-sec{
+    padding-top: 3%;
+    margin-left: 15%;
+    width: 70%;
+
+}
+.search-slt{
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    line-height: 1.5;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    height: calc(3rem + 2px) !important;
+    border-radius:10px;
+}
+
+.wrn-btn{
+    width: 100%;
+    background: #00901e;
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 400;
+    text-transform: capitalize;
+    height: calc(3rem + 2px) !important;
+    border-radius:0;
+}
+
+.form-control:focus {
+    border-color: #00901e;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 144, 30, 0.6);
+}
+

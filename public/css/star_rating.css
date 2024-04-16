@@ -1,0 +1,22 @@
+/* star-rating.css */
+.star {
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    font-size: 24px;
+    color: #e4e5e9;
+}
+
+.average-rating h5 {
+    display: inline-block;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.average-rating i {
+    font-size: 20px;
+}
+
+.text-warning {
+    color: #ffc107;
+}
