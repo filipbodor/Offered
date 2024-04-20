@@ -1,6 +1,4 @@
-@extends('layout')
-
-@section('content')
+<x-app-layout>
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -85,7 +83,7 @@
             </div>
         </div>
     </div>
-@endsection
+</x-app-layout>
 
 @include('partials._subcategory_loader_script')
 @include('partials._locations_loader_script')

@@ -1,10 +1,8 @@
-@extends('layout')
-@section('title', "Dashboard Page")
-@section('content')
+
+<x-app-layout>
 
     @include('include.search_form')
 
     @include('include.categories')
 
-@endsection
-
+</x-app-layout>

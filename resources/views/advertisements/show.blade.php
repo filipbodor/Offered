@@ -1,6 +1,4 @@
-@extends('layout')
-
-@section('content')
+<x-app-layout>
     <div class="container mt-4">
         <div class="row">
             <div class="col-md-2"></div>
@@ -95,7 +93,7 @@
             </div>
         </div>
     </div>
-@endsection
+</x-app-layout>
 
 @include('partials._star_rating_script')
 @include('partials._opening_chat_from_advertisement_script')

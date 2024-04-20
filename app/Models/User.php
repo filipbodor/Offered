@@ -79,8 +79,6 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->favoriteAdvertisements->contains($advertisement);
     }
 
-
-
     public function sentMessages() {
         return $this->hasMany(Message::class, 'from_user_id');
     }

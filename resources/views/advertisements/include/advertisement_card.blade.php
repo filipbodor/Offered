@@ -44,13 +44,13 @@
                             @else
                                 <a href="{{ route('advertisements.edit', $advertisement->id) }}" class="btn btn-secondary btn-sm me-2 mb-2">Upraviť</a>
                             @endif
-                            @if(auth()->user()->role->name === 'admin')
-                                <form action="{{ route('advertisements.destroy', $advertisement->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
+                            @//if(auth()->user()->role->name === 'admin')
+                                <!-- <form action="{//{ route('advertisements.destroy', $advertisement->id) }}" method="POST">
+                                    @//csrf
+                                    @//method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm me-2 mb-2" onclick="return confirm('Are you sure?')">Zmazať</button>
-                                </form>
-                            @endif
+                                </form> -->
+                            @//endif
                         @endauth
                     </div>
                 </div>

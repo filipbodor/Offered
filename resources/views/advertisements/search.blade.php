@@ -1,6 +1,4 @@
-@extends('layout')
-
-@section('content')
+<x-app-layout>
     <div class="container-fluid">
 
         <div class="row">
@@ -23,5 +21,5 @@
             </div>
         </div>
     </div>
-@endsection
+</x-app-layout>
 @include('partials._clickable_card_script')
