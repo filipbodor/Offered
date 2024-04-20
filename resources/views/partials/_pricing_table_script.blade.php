@@ -5,10 +5,10 @@
         const html = `
         <div class="row mb-2" id="pricingRow${rowIdx}">
             <div class="col-md-5">
-                <input type="text" class="form-control" name="services[]" placeholder="Service Name" required>
+                <x-input type="text" class="form-control" name="services[]" placeholder="Service Name" required/>
             </div>
             <div class="col-md-5">
-                <input type="number" class="form-control" name="prices[]" placeholder="Price" required>
+                <x-input type="number" class="form-control" name="prices[]" placeholder="Price" required/>
             </div>
             <div class="col-md-2">
                 <button type="button" class="btn btn-danger" onclick="removePricingRow(${rowIdx})">-</button>

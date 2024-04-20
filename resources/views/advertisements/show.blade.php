@@ -58,7 +58,7 @@
                         @auth
                             <div class="d-flex justify-content-start">
                                 @if(auth()->user()->id === $advertisement->user_id)
-                                    <a href="{{ route('advertisements.edit', $advertisement->id) }}" class="btn btn-primary me-2">Upravíť</a>
+                                    <a href="{{ route('advertisements.edit', $advertisement->id) }}" class="btn btn-primary me-2">Upraviť</a>
                                 @else
                                     <form action="{{ auth()->user()->favoriteAdvertisements->contains($advertisement) ? route('advertisements.unfavorite', $advertisement->id) : route('advertisements.favorite', $advertisement->id) }}" method="post" class="d-inline">
                                         @csrf

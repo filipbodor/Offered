@@ -1,0 +1,22 @@
+Search
+    - pouzitie vzdialenosti   DONE (je potrebne zadat keywords co neviem ci budeme menit (asi hej))
+Chat
+    - rozdelienie na ponuku a objednavky
+    -spravit to ze ked mi niekto napise tak viem ze napriklad napise ze "Zdravim je to este dostrupne"
+    tak aby som ja vedel ze o jakom inzerate pise...napr ze reaguje na "kvetinarstvo"
+
+Dizajn
+    - hlavna stranka
+    - chat
+    - inzeraty
+
+hamburger
+    - ked sa vyroluje tak location vydno
+
+databaza
+    - zmenit databazu s mestami
+
+- Overenie emailu
+
+- poslat na webhost konecne :(
+

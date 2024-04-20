@@ -1,0 +1,18 @@
+php artisan migrate --path=database/migrations/2014_10_12_000000_create_users_table.php
+php artisan migrate --path=database/migrations/2023_12_14_102139_create_categories_table.php
+php artisan migrate --path=database/migrations/2024_01_23_105914_create_locations_table.php
+php artisan migrate --path=database/migrations/2024_01_30_113823_create_subcategories_table.php
+php artisan migrate --path=database/migrations/2024_02_01_090342_create_advertisements_table.php
+php artisan migrate --path=database/migrations/2024_02_05_153253_create_advertisement_services_table.php
+php artisan migrate
+
+
+php artisan db:seed --class=RolesTableSeeder
+php artisan db:seed --class=UsersTableSeeder
+php artisan db:seed --class=LocationsSeeder
+php artisan db:seed --class=CategoriesTableSeeder
+php artisan db:seed --class=SubcategoriesTableSeeder
+php artisan db:seed --class=AdvertisementsTableSeeder
+php artisan db:seed --class=AdvertisementServicesTableSeeder
+php artisan db:seed --class=RatingsSeeder
+php artisan db:seed --class=AssignAdminRoleSeeder

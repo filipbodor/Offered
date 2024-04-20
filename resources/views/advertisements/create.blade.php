@@ -9,7 +9,7 @@
                     <div class="form-row mb-3">
                         <div class="col">
                             <label for="title" class="form-label">Nádpis</label>
-                            <input type="text" class="form-control" id="title" name="title" required>
+                            <x-input type="text" class="form-control" id="title" name="title" required/>
                         </div>
                     </div>
 
@@ -40,7 +40,7 @@
                     <div class="form-row mb-3">
                         <div class="col-md-12 form-group" style="position: relative;">
                             <label for="locationInput" class="form-label">Lokácia:</label>
-                            <input type="text" class="form-control" id="locationInput" name="location" autocomplete="off">
+                            <x-input type="text" class="form-control" id="locationInput" name="location" autocomplete="off"/>
                             <div id="locationSuggestions" class="suggestions-container"></div>
                         </div>
                     </div>
@@ -50,10 +50,10 @@
                         <div id="pricingTable">
                             <div class="row mb-2" id="pricingRow0">
                                 <div class="col-md-5">
-                                    <input type="text" class="form-control" name="services[]" placeholder="Služby a ceny" required>
+                                    <x-input type="text" class="form-control" name="services[]" placeholder="Služby a ceny" required/>
                                 </div>
                                 <div class="col-md-5">
-                                    <input type="number" class="form-control" name="prices[]" placeholder="Cena" required>
+                                    <x-input type="number" class="form-control" name="prices[]" placeholder="Cena" required/>
                                 </div>
                                 <div class="col-md-2">
                                     <button type="button" class="btn btn-primary" onclick="addPricingRow()">+</button>
