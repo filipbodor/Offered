@@ -128,7 +128,7 @@
                         {{ __('Profile') }}
                     </x-responsive-nav-link>
 
-                    <x-responsive-nav-link href="{{ route('advertisements.create') }}">
+                    <x-responsive-nav-link href="{{ route('advertisements.create') }}" :active="request()->routeIs('advertisements.create')">
                         {{ __('Ponúknuť') }}
                     </x-responsive-nav-link>
 
@@ -152,13 +152,13 @@
                 </div>
             @else
                 @if (Route::has('login'))
-                    <x-responsive-nav-link href="{{ route('login') }}">
+                    <x-responsive-nav-link href="{{ route('login') }}"  :active="request()->routeIs('login')">
                         {{ __('Login') }}
                     </x-responsive-nav-link>
                 @endif
 
                 @if (Route::has('register'))
-                    <x-responsive-nav-link href="{{ route('register') }}">
+                    <x-responsive-nav-link href="{{ route('register') }}"  :active="request()->routeIs('register')">
                         {{ __('Register') }}
                     </x-responsive-nav-link>
                 @endif

@@ -32,7 +32,6 @@
 
         <main>
             {{ $slot }}
-            @yield('content')
 
             @include('include.footer')
 

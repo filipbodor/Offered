@@ -1,12 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AdvertisementController;
 use App\Http\Controllers\AuthManager;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\FavoriteAdvertisementController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ChatController;

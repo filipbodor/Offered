@@ -1,7 +1,8 @@
 @auth()
     @php
         $currentUserId = auth()->id();
-        $users = \App\Http\Controllers\ChatController::getUserList($currentUserId);
+        //$users = \App\Http\Controllers\ChatController::getUserList($currentUserId);
+        $users = \App\Models\User::all();
     @endphp
 
     <!-- Chat Modal -->
@@ -22,8 +23,10 @@
                         <div class="chat-user-list col-lg-4 col-md-4 col-sm-4">
                             <ul id="userList">
                                 @foreach($users as $user)
-                                <li class="chat-user" data-user-id="{{ $user->id }}">            <img class="chat-list-profile-picture" src="{{ Storage::url($user->profile_picture) }}" alt="Profile Picture">
-                                    {{ $user->name }}</li>
+                                <li class="chat-user" data-user-id="{{ $user->id }}">
+                                    <img class="chat-list-profile-picture" src="{{ $user->profile_photo_url }}" alt="Profile Picture">
+                                    {{ $user->name }}
+                                </li>
                                 @endforeach
                             </ul>
                         </div>

@@ -7,7 +7,7 @@
         });
 
         // Function to toggle the chat container
-        @if(auth()->check())
+        @auth
             // Function to scroll down the message box to the latest message
             function scrollDownMessages() {
                 var messagesBox = document.querySelector('.messages');
@@ -30,6 +30,7 @@
 
             // Handle message sending
             $(document).on('submit', '.chat-form', function(event) {
+                console.log( $(this).find("#message").val())
                 event.preventDefault();
                 let message = $(this).find("#message").val();
                 let toUserId = $(this).data('to-user-id');
@@ -67,18 +68,13 @@
 
             // Handle user list item click
             $('#userList').on('click', '.chat-user', function() {
+                console.log("Loading chat with user ID:", userId);
                 selectedUserId = $(this).data('user-id');
                 loadChatWithUser(selectedUserId);
                 $('.chat-user').removeClass('active');
                 $(this).addClass('active');
             });
 
-            $('.start-chat-icon').on('click', function() {
-                var userId = $(this).data('user-id');
-                loadChatWithUser(userId);
-                $('.chat-user').removeClass('active');
-                $(".chat-user[data-user-id='" + userId + "']").addClass('active');
-            });
-        @endif
+        @endauth
     });
 </script>

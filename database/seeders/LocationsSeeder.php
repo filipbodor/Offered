@@ -9,7 +9,7 @@ class LocationsSeeder extends Seeder
 {
     public function run()
     {
-        $filePath = database_path('data/SK.txt');
+        $filePath = database_path('data/SK_.txt');
         $file = new \SplFileObject($filePath);
 
         while (!$file->eof()) {
@@ -18,9 +18,9 @@ class LocationsSeeder extends Seeder
 
             if (count($data) >= 3) {
                 Location::create([
-                    'name' => $data[1],
-                    'latitude' => $data[4],
-                    'longitude' => $data[5],
+                    'name' => $data[0],
+                    'latitude' => $data[1],
+                    'longitude' => $data[2],
                 ]);
             }
         }
