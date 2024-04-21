@@ -22,6 +22,7 @@
 
             // Function to handle received messages
             channel.bind('message', function(data) {
+                console.log(data, userId, selectedUserId);
                 if (data.toUserId === userId && data.fromUserId === selectedUserId) {
                     let messageHTML = `<div class="left message"><img src="${data.fromUserProfilePicUrl}" alt="Avatar"><p>${data.content}</p></div>`;                        $(".messages").append(messageHTML);
                     scrollDownMessages();
@@ -49,7 +50,7 @@
                 }).done(function(res) {
                     // Append message to chat and clear input field
                     let messageHTML = `<div class="right message">
-                                <img src="{{ Storage::url(auth()->user()->profile_picture) }}" alt="Avatar">
+                                <img src="{{ auth()->user()->profile_photo_url }}" alt="Avatar">
                                 <p>${message}</p>
                             </div>`;
                     $(".messages").append(messageHTML);
@@ -61,6 +62,7 @@
             function loadChatWithUser(userId) {
                 console.log("Loading chat with user ID:", userId);
                 $.get('/load-chat-interface', {user_id: userId}, function(response) {
+                    selectedUserId = userId;
                     $('.chat').html(response);
                     scrollDownMessages();
                 });
@@ -69,10 +71,14 @@
             // Handle user list item click
             $('#userList').on('click', '.chat-user', function() {
                 console.log("Loading chat with user ID:", userId);
-                selectedUserId = $(this).data('user-id');
                 loadChatWithUser(selectedUserId);
                 $('.chat-user').removeClass('active');
                 $(this).addClass('active');
+            });
+
+            $('.start-chat-icon').on('click', function() {
+                var userId = $(this).data('user-id');
+                loadChatWithUser(userId);
             });
 
         @endauth

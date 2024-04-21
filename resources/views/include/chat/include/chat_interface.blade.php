@@ -11,7 +11,7 @@
 <div class="messages">
     @foreach($messages as $message)
         <div class="{{ $message->from_user_id == auth()->id() ? 'right' : 'left' }} message">
-            <img src="{{ $message->fromUser->profile_photo_path }}" alt="Avatar">
+            <img src="{{ $message->fromUser->profile_photo_url }}" alt="Avatar">
             <p>{{ $message->content }}</p>
         </div>
     @endforeach

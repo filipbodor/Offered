@@ -96,5 +96,5 @@
 </x-app-layout>
 
 @include('partials._star_rating_script')
-@include('partials._opening_chat_from_advertisement_script')
+
 

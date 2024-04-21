@@ -25,7 +25,7 @@ class PusherController extends Controller
         ]);
 
         $fromUser = auth()->user();
-        $fromUserProfilePicUrl = Storage::url($fromUser->profile_picture);
+        $fromUserProfilePicUrl = $fromUser->profile_photo_url;
 
         $message = Message::create([
             'from_user_id' => $fromUser->id,

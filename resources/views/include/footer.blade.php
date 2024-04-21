@@ -64,13 +64,6 @@
                     </div>
                 </div>
 
-                <div class="mw-50" id="ww_55cb33be1c0db" v='1.3' loc='id'
-                     a='{"t":"responsive","lang":"sk","sl_lpl":1,"ids":["wl2652"],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":
-                     "#388E3C","cl_font":"#FFFFFF","cl_cloud":"#FFFFFF","cl_persp":"#FFFFFF","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":
-                     "#FF5722","sl_tof":"7","cl_odd":"#0000000a","el_wfc":3}'>More forecasts:
-                    <a href="https://oneweather.org/sl/ljubljana/25_days/" id="ww_55cb33be1c0db_u" target="_blank">Vreme 25 dni Ljubljana</a></div><script
-                    async src="https://app2.weatherwidget.org/js/?id=ww_55cb33be1c0db"></script>
-                </div>
 
             </div>
         </div>
