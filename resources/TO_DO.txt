@@ -1,5 +1,5 @@
 Search
-    - pouzitie vzdialenosti   DONE (je potrebne zadat keywords co neviem ci budeme menit (asi hej))
+    - pouzitie vzdialenosti -  DONE
 Chat
     - rozdelienie na ponuku a objednavky
     -spravit to ze ked mi niekto napise tak viem ze napriklad napise ze "Zdravim je to este dostrupne"
@@ -7,16 +7,16 @@ Chat
 
 Dizajn
     - hlavna stranka
-    - chat
+    - chat                                          pracuje sa na tom
     - inzeraty
 
 hamburger
-    - ked sa vyroluje tak location vydno
+    - ked sa vyroluje tak location vydno - DONE
 
 databaza
-    - zmenit databazu s mestami
+    - zmenit databazu s mestami  - DONE
 
-- Overenie emailu
+- Overenie emailu        - DONE
 
 - poslat na webhost konecne :(
 

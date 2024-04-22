@@ -1,32 +1,48 @@
 /* sidebar */
 .subcategory-sidebar {
-    background-color: #f8f9fa;
+    background-color: #ffffff;
     padding: 10px;
     border-right: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    height: calc(100vh);
     overflow-y: auto;
-    padding-top: 56px;
+}
+.subcategory-sidebar h1 {
+    font-size: 2.5rem;
+    margin: 1rem;
+    font-weight: bold;
 }
 
-.subcategory-sidebar .list-group-item {
-    color: #495057;
-    border-color: #ddd;
+.subcategory-sidebar .custom-list-group-item {
+    color: black;
+    display: block;
+    padding: 8px;
+    border-left: 4px solid transparent;
+    font-size: 1rem;
+    font-weight: 350;
 }
 
-.subcategory-sidebar .list-group-item.active,
-.subcategory-sidebar .list-group-item.subcategory-link.active {
-    background-color: #e9ecef;
-    color: #495057;
-    border-color: #ddd;
+.subcategory-sidebar .category-list-group-item {
+    font-weight: 450;
+    border-bottom: 1px solid #e9ecef;
+}
+.subcategory-sidebar .subcategory-list-group-item {
+    color: black;
+    display: block;
+    padding: 8px 8px 8px 25px;
 }
 
-.subcategory-sidebar .list-group-item-action:hover,
-.subcategory-sidebar .list-group-item.subcategory-link:hover,
-.subcategory-sidebar .list-group-item.category-list-group-item-action:hover {
-    background-color: #e9ecef;
-    color: #495057;
-    border-color: #ddd;
+.subcategory-sidebar .custom-list-group-item.active,
+.subcategory-sidebar .custom-list-group-item.subcategory-link.active {
+    border-left: 4px solid #00b200;
+    background-color: #c5eac5;
+}
+.subcategory-sidebar .category-list-group-item.active {
+    border-bottom: 1px solid #c5eac5;
+}
+
+.subcategory-sidebar .custom-list-group-item-action:hover,
+.subcategory-sidebar .custom-list-group-item.subcategory-link:hover,
+.subcategory-sidebar .custom-list-group-item.category-list-group-item-action:hover {
+    color: #61666b;
 }
 
 
@@ -35,8 +51,19 @@
     position: -webkit-sticky;
     position: sticky;
 }
-.subcategory-link {
-    padding-left: 30px;
-    font-size: 0.9rem;
-    font-weight: 350;
+
+.category-list-group-item::after {
+    float: right;
+    display: inline-block;
+    margin-left: .255em;
+    vertical-align: .255em;
+    content: "";
+    border-left: .3em solid;
+    border-top: .3em solid transparent;
+    border-right: 0;
+    border-bottom: .3em solid transparent;
 }
+
+.category-list-group-item.expanded::after {
+    transform: rotate(90deg);
+    transition-duration: 0.5s}

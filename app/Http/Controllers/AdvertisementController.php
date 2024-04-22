@@ -151,7 +151,6 @@ class AdvertisementController extends Controller
     public function search(Request $request)
     {
 
-        \Log::info($request);
         $query = Advertisement::query();
 
         $hasLocationDistance = $request->filled('location') && $request->filled('distance');
