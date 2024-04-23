@@ -3,17 +3,19 @@
     function addPricingRow() {
         rowIdx++;
         const html = `
-        <div class="row mb-2" id="pricingRow${rowIdx}">
-            <div class="col-md-5">
-                <x-input type="text" class="form-control" name="services[]" placeholder="Service Name" required/>
+            <div class="row mb-2" id="pricingRow${rowIdx}">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-7 mb-2">
+                        <x-input type="text" class="form-control" name="services[]" placeholder="Služba" required/>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 mb-2">
+                        <x-input type="number" class="form-control" name="prices[]" placeholder="Cena" required/>
+                    </div>
+                    <div class="col-xs-6 col-sm-2 mb-2">
+                        <button type="button" class="btn btn-danger" onclick="removePricingRow(${rowIdx})">-</button>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-5">
-                <x-input type="number" class="form-control" name="prices[]" placeholder="Price" required/>
-            </div>
-            <div class="col-md-2">
-                <button type="button" class="btn btn-danger" onclick="removePricingRow(${rowIdx})">-</button>
-            </div>
-        </div>
     `;
         document.getElementById('pricingTable').insertAdjacentHTML('beforeend', html);
     }

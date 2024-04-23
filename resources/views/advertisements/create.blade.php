@@ -49,14 +49,16 @@
                         <label class="form-label">Služby a ceny:</label>
                         <div id="pricingTable">
                             <div class="row mb-2" id="pricingRow0">
-                                <div class="col-md-5">
-                                    <x-input type="text" class="form-control" name="services[]" placeholder="Služby a ceny" required/>
-                                </div>
-                                <div class="col-md-5">
-                                    <x-input type="number" class="form-control" name="prices[]" placeholder="Cena" required/>
-                                </div>
-                                <div class="col-md-2">
-                                    <button type="button" class="btn btn-primary" onclick="addPricingRow()">+</button>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-7 mb-2">
+                                        <x-input type="text" class="form-control" name="services[]" placeholder="Služba" required/>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-3 mb-2">
+                                        <x-input type="number" class="form-control" name="prices[]" placeholder="Cena" required/>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-2 mb-2">
+                                        <button type="button" class="btn btn-primary" onclick="addPricingRow()">+</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
