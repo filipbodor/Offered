@@ -1,16 +1,11 @@
 <script>
     $(document).ready(function() {
 
-        $('.first-button').on('click', function () {
-
-            $('.animated-icon').toggleClass('open');
-        });
-
         // Function to toggle the chat container
         @auth
-            // Function to scroll down the message box to the latest message
+        // Function to scroll down the message box to the latest message
             function scrollDownMessages() {
-                var messagesBox = document.querySelector('.messages');
+                var messagesBox = document.querySelector('.chat-box');
                 messagesBox.scrollTop = messagesBox.scrollHeight;
             }
 
@@ -24,7 +19,8 @@
             channel.bind('message', function(data) {
                 console.log(data, userId, selectedUserId);
                 if (data.toUserId === userId && data.fromUserId === selectedUserId) {
-                    let messageHTML = `<div class="left message"><img src="${data.fromUserProfilePicUrl}" alt="Avatar"><p>${data.content}</p></div>`;                        $(".messages").append(messageHTML);
+                    let messageHTML = '<li class="chat-left"><div class="chat-avatar"><img src="${data.fromUserProfilePicUrl}" alt="Avatar"><div class="chat-name">${data.fromUserId}</div> </div> <div class="chat-text">${data.content}</div><div class="chat-hour">08:55 <span class="fa fa-check-circle"></span></div></li>'
+                    $(".messages").append(messageHTML);
                     scrollDownMessages();
                 }
             });
@@ -49,10 +45,7 @@
                     }
                 }).done(function(res) {
                     // Append message to chat and clear input field
-                    let messageHTML = `<div class="right message">
-                                <img src="{{ auth()->user()->profile_photo_url }}" alt="Avatar">
-                                <p>${message}</p>
-                            </div>`;
+                    let messageHTML = '<li class="chat-right"><div class="chat-avatar"><img src="{{ auth()->user()->profile_photo_url }}" alt="Avatar"><div class="chat-name">{{ auth()->user()->name }}</div> </div> <div class="chat-text">${message}</div><div class="chat-hour">08:55 <span class="fa fa-check-circle"></span></div></li>';
                     $(".messages").append(messageHTML);
                     $("#message").val('');
                     scrollDownMessages();
@@ -60,26 +53,25 @@
             });
 
             function loadChatWithUser(userId) {
+                console.log("Loading chat with user ID:", userId);
                 $.get('/load-chat-interface', {user_id: userId}, function(response) {
+                    selectedUserId = userId;
                     $('.chat').html(response);
                     scrollDownMessages();
                 });
             }
 
             // Handle user list item click
-            $('#userList').on('click', '.chat-user', function() {
-                selectedUserId = $(this).data('user-id');
-                console.log("Loading chat with user ID:", selectedUserId);
+            $('.users').on('click', '.person', function() {
+                console.log("Loading chat with user ID:", userId);
                 loadChatWithUser(selectedUserId);
-                $('.chat-user').removeClass('active');
+                $('.person').removeClass('active');
                 $(this).addClass('active');
             });
 
             $('.start-chat-icon').on('click', function() {
-                selectedUserId = $(this).data('user-id');
-                $('.chat-user').removeClass('active');
-                $('[data-user-id="' + selectedUserId + '"]').closest('.chat-user').addClass('active'); // Add active class to clicked user
-                loadChatWithUser(selectedUserId);
+                var userId = $(this).data('user-id');
+                loadChatWithUser(userId);
             });
 
         @endauth

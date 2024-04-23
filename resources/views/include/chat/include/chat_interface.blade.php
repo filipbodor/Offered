@@ -1,14 +1,15 @@
 <!-- Chat Header -->
-<div class="top">
-    <img src="{{ $user->profile_photo_url }}" alt="Avatar">
-    <div>
-        <p>{{ $user->name }}</p>
-        <small>Online</small>
-    </div>
-</div>
+
 
 <!-- Chat Messages -->
 <div class="messages">
+    <div class="top">
+        <img src="{{ $user->profile_photo_url }}" alt="Avatar">
+        <div>
+            <p>{{ $user->name }}</p>
+            <small>Online</small>
+        </div>
+    </div>
     @foreach($messages as $message)
         <div class="{{ $message->from_user_id == auth()->id() ? 'right' : 'left' }} message">
             <img src="{{ $message->fromUser->profile_photo_url }}" alt="Avatar">

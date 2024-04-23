@@ -32,7 +32,6 @@
             {{ $slot }}
         </div>
 
-        @include('include.footer')
 
         @livewireScripts
     </body>

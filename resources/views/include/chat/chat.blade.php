@@ -1,8 +1,8 @@
 @auth()
     @php
         $currentUserId = auth()->id();
-        //$users = \App\Http\Controllers\ChatController::getUserList($currentUserId);
-        $users = \App\Models\User::all();
+        $users = \App\Http\Controllers\ChatController::getUserList($currentUserId);
+        //$users = \App\Models\User::all();
     @endphp
 
     <!-- Chat Modal -->
