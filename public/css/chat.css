@@ -232,3 +232,42 @@ body.modal-open .chat-icon {
     height: 2.35rem;
     background: url("https://assets.edlin.app/icons/font-awesome/paper-plane/paper-plane-regular.svg") center no-repeat;
 }
+
+
+/* responsive chat user list */
+
+.chat-hamburger {
+    display: block;
+    cursor: pointer;
+}
+
+.chat-hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    background: #000;
+    transition: 0.5s;
+}
+
+.open span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.open span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.user-list-container {
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+    max-height: 0;
+}
+
+.user-list-container.open {
+    max-height: 500px; /* Set a maximum height for smooth transition */
+}

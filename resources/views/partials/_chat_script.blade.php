@@ -82,6 +82,20 @@
                 loadChatWithUser(selectedUserId);
             });
 
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburger = document.getElementById('hamburger');
+            const userList = document.querySelector('.user-list-container');
+
+            if (hamburger && userList) {
+                hamburger.addEventListener('click', function () {
+                    userList.classList.toggle('open');
+                });
+            } else {
+                console.error('Hamburger or user list not found.');
+            }
+        });
+
+
         @endauth
     });
 </script>

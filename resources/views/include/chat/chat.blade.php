@@ -19,16 +19,22 @@
                 <!-- Modal Body -->
                 <div class="modal-body col-lg-12 chat-container">
                     <div class="row">
-                        <!-- User List -->
+                        <!-- Collapsible User List -->
                         <div class="chat-user-list col-lg-4 col-md-4 col-sm-4">
-                            <ul id="userList">
-                                @foreach($users as $user)
-                                <li class="chat-user" data-user-id="{{ $user->id }}">
-                                    <img class="chat-list-profile-picture" src="{{ $user->profile_photo_url }}" alt="Profile Picture">
-                                    {{ $user->name }}
-                                </li>
-                                @endforeach
-                            </ul>
+                            <div class="chat-hamburger" id="chat-hamburger">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div class="user-list-container">
+                                <ul id="userList">
+                                    @foreach($users as $user)
+                                        <li class="chat-user" data-user-id="{{ $user->id }}">
+                                            <img class="chat-list-profile-picture" src="{{ $user->profile_photo_url }}" alt="Profile Picture">
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
                         </div>
                         <!-- End User List -->
 

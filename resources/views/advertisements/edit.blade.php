@@ -10,7 +10,7 @@
                     <div class="form-row mb-3">
                         <div class="col">
                             <label for="title" class="form-label">Title</label>
-                            <input type="text" class="form-control" id="title" name="title" value="{{ $advertisement->title }}" required>
+                            <x-input type="text" class="form-control" id="title" name="title" value="{{ $advertisement->title }}" required/>
                         </div>
                     </div>
 
@@ -43,8 +43,8 @@
                     <div class="form-row mb-3">
                         <div class="col-md-12 form-group" style="position: relative;">
                             <label for="locationInput" class="form-label">Location:</label>
-                            <input type="text" class="form-control" id="locationInput" name="location" autocomplete="off" value="{{ \App\Models\Location::find($advertisement->location_id)->name}}">
-                            <input type="hidden" id="location_id" name="location_id" value="{{ $advertisement->location_id }}">
+                            <x-input type="text" class="form-control" id="locationInput" name="location" autocomplete="off" value="{{ \App\Models\Location::find($advertisement->location_id)->name}}"/>
+                            <x-input type="hidden" id="location_id" name="location_id" value="{{ $advertisement->location_id }}"/>
                             <div id="locationSuggestions" class="suggestions-container"></div>
                         </div>
                     </div>
@@ -55,13 +55,13 @@
                             <!-- Load existing services -->
                             @foreach($advertisement->services as $index => $service)
                                 <div class="row mb-2" id="pricingRow{{ $index }}">
-                                    <div class="col-md-5">
-                                        <input type="text" class="form-control" name="services[]" placeholder="Service Name" value="{{ $service->service_name }}" required>
+                                    <div class="col-xs-12 col-sm-7 mb-2">
+                                        <x-input type="text" class="form-control" name="services[]" placeholder="Služba" value="{{ $service->service_name }}" required/>
                                     </div>
-                                    <div class="col-md-5">
-                                        <input type="number" class="form-control" name="prices[]" placeholder="Price" value="{{ $service->price }}" required>
+                                    <div class="col-xs-6 col-sm-3 mb-2">
+                                        <x-input type="number" class="form-control" name="prices[]" placeholder="Cena" value="{{ $service->price }}" required/>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-xs-6 col-sm-2 mb-2">
                                         @if($loop->first)
                                             <button type="button" class="btn btn-primary" onclick="addPricingRow()">+</button>
                                         @else
