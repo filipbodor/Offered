@@ -95,6 +95,27 @@
             }
         });
 
+        function toggleChatView() {
+            const userListContainer = document.getElementById('userListContainer');
+            const chatContainer = document.getElementById('chatContainer');
+            userListContainer.classList.toggle('d-none');
+            chatContainer.classList.toggle('d-none');
+        }
+
+        // Attach event listener to the back button
+        $('#backToUserListBtn').on('click', function() {
+            toggleChatView();
+        });
+
+        // Handle user list item click on small screens
+        $('#userList').on('click', '.chat-user', function() {
+            // Check if it's a small screen
+            if ($(window).width() < 576) {
+                // Show the chat interface
+                toggleChatView();
+            }
+        });
+
 
         @endauth
     });
