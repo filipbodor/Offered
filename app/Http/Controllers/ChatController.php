@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Message;
+use App\Notifications\SendEmailNotification;
+use Illuminate\Support\Facades\Notification;
 
 class ChatController extends Controller
 {
@@ -56,5 +58,31 @@ class ChatController extends Controller
         })->get();
 
         return $users;
+    }
+
+    public static function sendNotification(Request $request, $senderId, $receiverId)
+    {
+        $sender = User::findOrFail($senderId);
+        $receiver = User::findOrFail($receiverId);
+
+        // Prepare email notification details
+        $details = [
+
+            'greeting' => 'Ahoj ' . $receiver->name . ',',
+            'body' => 'používateľ ' . $sender->name . ' Vám poslal správu do četu.',
+            'actiontext' => 'Pozri správu!',
+            'actionurl' => '/',
+            'lastline' => 'Ďakujeme, že používaš Offered!',
+        ];
+
+        // Send email notification to the receiver
+        Notification::send($receiver, new SendEmailNotification($details));
+
+        // Optional: You can also send a notification to the sender if needed
+        // Notification::send($sender, new SendEmailNotification($details));
+
+        return response()->json(['message' => 'Email notification sent successfully']);
+
+        dd('send');
     }
 }

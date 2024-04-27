@@ -86,3 +86,8 @@ Route::put('/advertisements/{id}', [AdvertisementController::class, 'update'])->
 Route::get('/advertisements/{id}/edit', [AdvertisementController::class, 'edit'])->name('advertisements.edit');
 Route::resource('advertisements', AdvertisementController::class);
 Route::get('/location-search', [LocationController::class, 'search'])->name('location.search');
+
+
+
+Route::get('send/{senderId}/{receiverId}', [ChatController::class, 'sendNotification']);
+

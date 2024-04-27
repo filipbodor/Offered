@@ -31,33 +31,59 @@
             });
 
             // Handle message sending
-            $(document).on('submit', '.chat-form', function(event) {
-                console.log( $(this).find("#message").val())
-                event.preventDefault();
-                let message = $(this).find("#message").val();
-                let toUserId = $(this).data('to-user-id');
+        $(document).on('submit', '.chat-form', function(event) {
+            event.preventDefault();
+            let message = $(this).find("#message").val();
+            let toUserId = $(this).data('to-user-id');
 
-                $.ajax({
-                    url: "/broadcast", // Update this line to point to the broadcast route
-                    method: 'POST',
-                    headers: {
-                        'X-Socket-Id': pusher.connection.socket_id
-                    },
-                    data: {
-                        _token: '{{ csrf_token() }}',
-                        message: message,
-                        to_user_id: toUserId
-                    }
-                }).done(function(res) {
-                    // Append message to chat and clear input field
+            // Send message via AJAX
+            $.ajax({
+                url: "/broadcast", // Update this line to point to the broadcast route
+                method: 'POST',
+                headers: {
+                    'X-Socket-Id': pusher.connection.socket_id
+                },
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    message: message,
+                    to_user_id: toUserId
+                },
+                success: function(res) {
+                    // Append sent message to chat and clear input field
                     let messageHTML = `<div class="right message">
-                                <p class="text-break message-bg-green">${message}</p>
-                            </div>`;
+                                    <p class="text-break message-bg-green">${message}</p>
+                                </div>`;
                     $(".messages").append(messageHTML);
                     $("#message").val('');
                     scrollDownMessages();
-                });
+
+                    // Send notification
+                    sendNotification(toUserId, {{ auth()->id() }});
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                    alert('Failed to send message. Please try again.');
+                }
             });
+        });
+
+            function sendNotification(receiverId, senderId, message) {
+                $.ajax({
+                    url: "/send/" + senderId + "/" + receiverId, // Replace with the actual route for sending notifications
+                    method: 'GET',
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        message: message
+                    },
+                    success: function(response) {
+                        console.log('Notification sent successfully:', response);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Failed to send notification:', xhr.responseText);
+                    }
+                });
+            }
+
 
             function loadChatWithUser(userId) {
                 $.get('/load-chat-interface', {user_id: userId}, function(response) {
