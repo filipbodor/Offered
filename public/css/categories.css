@@ -13,7 +13,7 @@
 }
 
 .category-card-wrapper .category-card h4 {
-    font-size: 1.5rem; /* Adjust font size as needed */
+    font-size: 1.45rem; /* Adjust font size as needed */
     color: #333; /* Adjust text color as needed */
     font-weight: bold; /* Adjust font weight as needed */
     text-transform: uppercase; /* Adjust text transform as needed */
@@ -30,4 +30,21 @@
 
 .category-card-wrapper .category-card {
     text-decoration: None;
+}
+/* Custom CSS for smaller font size and image size */
+@media (max-width: 576px) {
+    .category-card-wrapper .category-card h4 {
+        font-size: 1.15rem; /* Adjust the font size as needed */
+    }
+
+    .smaller-image {
+        max-width: 70px; /* Adjust the maximum width of the image as needed */
+        max-height: 70px; /* Adjust the maximum height of the image as needed */
+    }
+}
+/* Custom CSS for smaller font size and image size */
+@media (max-width: 1030px) {
+    .category-card-wrapper {
+        height: 230px;
+    }
 }
