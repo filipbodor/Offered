@@ -11,36 +11,25 @@
             <div class="modal-content chat-modal-container">
 
                 <!-- Modal Header -->
-                <div class="modal-header d-flex justify-content-between align-items-center">
-                    <!-- Back Button -->
-                    <div class="d-block d-sm-none">
-                        <div>
-                            <button type="button" class="btn btn-sm btn-outline-secondary" id="backToUserListBtn">
-                                <i class="bi bi-arrow-left"></i>
-                            </button>
-                        </div>
-
-                        <!-- User Profile and Name -->
-                        <div class="d-flex align-items-center">
-                            <span> Dakto</span>
-                        </div>
-                    </div>
-                    <!-- Close Button -->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="chatModalLabel">Chat</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-
                 <!-- Modal Body -->
-                <div class="modal-body col-lg-12 chat-container">
-                    <div class="row">
+                <div class="modal-body col-lg-12 chat-container p-0">
+                    <div class="row m-0">
                         <!-- User List -->
-                        <div id="userListContainer" class="chat-user-list col-lg-4 col-md-4 col-sm-4 d-lg-block d-md-block d-sm-block d-none">
+                        <div id="userListContainer" class="chat-user-list col-lg-4 col-md-4 col-sm-4 d-lg-block d-md-block d-sm-block d-none p-0">
                             <ul id="userList">
                                 @foreach($users as $user)
                                     <li class="chat-user" data-user-id="{{ $user->id }}">
-                                        <img class="chat-list-profile-picture" src="{{ $user->profile_photo_url }}" alt="Profile Picture">
-                                        {{ $user->name }}
+                                        <div class="d-flex align-items-center">
+                                            <img class="chat-list-profile-picture me-2" src="{{ $user->profile_photo_url }}" alt="Profile Picture">
+                                            <span>{{ $user->name }}</span>
+                                        </div>
                                     </li>
+
                                 @endforeach
                             </ul>
                         </div>

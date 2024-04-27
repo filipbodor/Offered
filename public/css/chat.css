@@ -17,9 +17,6 @@ body.modal-open .chat-icon {
 .chat-user-list {
     border-right: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
 }
-#userList {
-    padding: 0;
-}
 .chat-list-profile-picture {
     width: 50px;
     height: 50px;
@@ -77,15 +74,21 @@ body.modal-open .chat-icon {
     box-sizing: border-box;
     border-bottom: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
     justify-content: space-between !important;
-    padding: 1.5rem !important;
+    padding: 0.5rem !important;
 }
 .chat .top img {
     display: inline-block;
-    height: 100px;
-    width: 100px;
+    height: 45px;
+    width: 45px;
     border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
     border-radius: 50% !important;
     box-shadow: 0 0 3px rgba(60, 72, 88, 0.15) !important;
+    margin: 0 0.5rem;
+
+}
+.chat .top .backToUserListBtn {
+    padding: 0.5rem;
+    color: #1a202c;
 }
 .chat .top div {
     display: inline-block;
@@ -98,7 +101,6 @@ body.modal-open .chat-icon {
     word-wrap: break-word;
     box-sizing: border-box;
     overflow: hidden !important;
-    margin-left: 1rem !important;
 }
 .chat .top div p {
     display: block;
@@ -107,7 +109,6 @@ body.modal-open .chat-icon {
     box-sizing: border-box;
     text-decoration: none !important;
     transition: all 0.5s ease;
-    padding-top: 1rem;
     font-size: 1rem;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -143,9 +144,10 @@ body.modal-open .chat-icon {
     list-style: none;
     margin-bottom: 0 !important;
     padding: 1rem !important;
-    max-height: 75vh;
-    height: 75vh;
+    max-height: 60vh;
+    height: 60vh;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 .chat .messages .left {
     text-align: left;
@@ -157,6 +159,7 @@ body.modal-open .chat-icon {
     margin-bottom: 1rem;
 }
 .chat .messages .message p {
+    max-width: 95%;
     display: inline-flex;
     font-weight: var(--bs-body-font-weight);
     line-height: var(--bs-body-line-height);
@@ -168,9 +171,15 @@ body.modal-open .chat-icon {
     font-size: 0.875em;
     margin: 0.25rem;
     padding: 0.5rem 1rem !important;
-    color: #6c757d !important;
-    background-color: rgba(var(--bs-light-rgb), 1) !important;
     border-radius: var(--bs-border-radius) !important;
+}
+.chat .messages .message .message-bg-green {
+    background-color: #1fa41f;
+    color: white;
+}
+.chat .messages .message .message-bg-neutral {
+    background-color: rgba(var(--bs-light-rgb), 1) !important;
+    color: #6c757d !important;
 }
 .chat .messages .message img {
     display: inline-flex;
@@ -222,53 +231,32 @@ body.modal-open .chat-icon {
     color: #3c4858 !important;
 }
 .chat .bottom button {
-    float: right;
-    display: inline-flex;
-    text-align: center;
-    cursor: pointer;
-    border: 1px solid #484848;
-    border-radius: 5px;
-    margin: 3px;
+    background-color: #1fa41f;
+    border: none;
+    border-radius: 0.75rem;
     width: 2.35rem;
     height: 2.35rem;
-    background: url("https://assets.edlin.app/icons/font-awesome/paper-plane/paper-plane-regular.svg") center no-repeat;
-}
-
-
-/* responsive chat user list */
-
-.chat-hamburger {
-    display: block;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    float: right;
     cursor: pointer;
 }
 
-.chat-hamburger span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px;
-    background: #000;
-    transition: 0.5s;
+.custom-button i {
+    color: white;
+    font-size: 20px; /* Adjust icon size as needed */
 }
 
-.open span:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
-}
+/* Adjust arrow icon size and position as needed */
 
-.open span:nth-child(2) {
-    opacity: 0;
-}
+float: right;
+display: inline-flex;
+text-align: center;
+cursor: pointer;
+border: 1px solid #484848;
+border-radius: 5px;
+margin: 3px;
+width: 2.35rem;
+height: 2.35rem;
 
-.open span:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px);
-}
-
-.user-list-container {
-    overflow: hidden;
-    transition: max-height 0.5s ease-out;
-    max-height: 0;
-}
-
-.user-list-container.open {
-    max-height: 500px; /* Set a maximum height for smooth transition */
-}

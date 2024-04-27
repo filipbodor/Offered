@@ -8,7 +8,6 @@ php artisan migrate
 
 
 php artisan db:seed --class=RolesTableSeeder
-php artisan db:seed --class=UsersTableSeeder
 php artisan db:seed --class=LocationsSeeder
 php artisan db:seed --class=CategoriesTableSeeder
 php artisan db:seed --class=SubcategoriesTableSeeder
@@ -16,3 +15,4 @@ php artisan db:seed --class=AdvertisementsTableSeeder
 php artisan db:seed --class=AdvertisementServicesTableSeeder
 php artisan db:seed --class=RatingsSeeder
 php artisan db:seed --class=AssignAdminRoleSeeder
+php artisan db:seed --class=UsersTableSeeder

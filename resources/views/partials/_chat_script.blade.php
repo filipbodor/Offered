@@ -24,7 +24,8 @@
             channel.bind('message', function(data) {
                 console.log(data, userId, selectedUserId);
                 if (data.toUserId === userId && data.fromUserId === selectedUserId) {
-                    let messageHTML = `<div class="left message"><img src="${data.fromUserProfilePicUrl}" alt="Avatar"><p>${data.content}</p></div>`;                        $(".messages").append(messageHTML);
+                    let messageHTML = `<div class="left message"><p class="message-bg-neutral">${data.content}</p></div>`;
+                    $(".messages").append(messageHTML);
                     scrollDownMessages();
                 }
             });
@@ -50,8 +51,7 @@
                 }).done(function(res) {
                     // Append message to chat and clear input field
                     let messageHTML = `<div class="right message">
-                                <img src="{{ auth()->user()->profile_photo_url }}" alt="Avatar">
-                                <p>${message}</p>
+                                <p class="message-bg-green">${message}</p>
                             </div>`;
                     $(".messages").append(messageHTML);
                     $("#message").val('');
@@ -82,39 +82,35 @@
                 loadChatWithUser(selectedUserId);
             });
 
-        document.addEventListener('DOMContentLoaded', function () {
-            const hamburger = document.getElementById('hamburger');
-            const userList = document.querySelector('.user-list-container');
+            document.addEventListener('DOMContentLoaded', function () {
+                const hamburger = document.getElementById('hamburger');
+                const userList = document.querySelector('.user-list-container');
 
-            if (hamburger && userList) {
-                hamburger.addEventListener('click', function () {
-                    userList.classList.toggle('open');
-                });
-            } else {
-                console.error('Hamburger or user list not found.');
+                if (hamburger && userList) {
+                    hamburger.addEventListener('click', function () {
+                        userList.classList.toggle('open');
+                    });
+                } else {
+                    console.error('Hamburger or user list not found.');
+                }
+            });
+
+            function toggleChatView() {
+                const userListContainer = document.getElementById('userListContainer');
+                const chatContainer = document.getElementById('chatContainer');
+                userListContainer.classList.toggle('d-none');
+                chatContainer.classList.toggle('d-none');
             }
-        });
 
-        function toggleChatView() {
-            const userListContainer = document.getElementById('userListContainer');
-            const chatContainer = document.getElementById('chatContainer');
-            userListContainer.classList.toggle('d-none');
-            chatContainer.classList.toggle('d-none');
-        }
-
-        // Attach event listener to the back button
-        $('#backToUserListBtn').on('click', function() {
-            toggleChatView();
-        });
-
-        // Handle user list item click on small screens
-        $('#userList').on('click', '.chat-user', function() {
-            // Check if it's a small screen
-            if ($(window).width() < 576) {
-                // Show the chat interface
-                toggleChatView();
-            }
-        });
+            // Handle user list item click on small screens
+            $('#userList').on('click', '.chat-user', function() {
+                // Check if it's a small screen
+                if ($(window).width() < 576) {
+                    console.log('click');
+                    // Show the chat interface
+                    toggleChatView();
+                }
+            });
 
 
         @endauth
