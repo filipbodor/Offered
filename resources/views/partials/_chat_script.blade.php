@@ -80,19 +80,9 @@
                 $('.chat-user').removeClass('active');
                 $('[data-user-id="' + selectedUserId + '"]').closest('.chat-user').addClass('active'); // Add active class to clicked user
                 loadChatWithUser(selectedUserId);
-            });
 
-            document.addEventListener('DOMContentLoaded', function () {
-                const hamburger = document.getElementById('hamburger');
-                const userList = document.querySelector('.user-list-container');
-
-                if (hamburger && userList) {
-                    hamburger.addEventListener('click', function () {
-                        userList.classList.toggle('open');
-                    });
-                } else {
-                    console.error('Hamburger or user list not found.');
-                }
+                $('#userListContainer').addClass('d-none');
+                $('#chatContainer').removeClass('d-none');
             });
 
             function toggleChatView() {
@@ -105,35 +95,33 @@
             // Handle user list item click on small screens
             $('#userList').on('click', '.chat-user', function() {
                 // Check if it's a small screen
-                if ($(window).width() < 576) {
+                if ($(window).width() < 960) {
                     console.log('click');
                     // Show the chat interface
                     toggleChatView();
                 }
             });
+            function performSearch() {
+                var searchText = $('#searchInput').val().toLowerCase(); // Get the search input value and convert it to lowercase for case-insensitive comparison
+                $('#userList li').each(function() {
+                    var userName = $(this).find('span').text().toLowerCase(); // Get the user name from the list item and convert it to lowercase
+                    if (userName.includes(searchText)) { // Check if the user name contains the search input value
+                        $(this).show(); // Show the user list item if it matches the search input value
+                    } else {
+                        $(this).hide(); // Hide the user list item if it does not match the search input value
+                    }
+                });
+            }
 
-
-        function performSearch() {
-            var searchText = $('#searchInput').val().toLowerCase(); // Get the search input value and convert it to lowercase for case-insensitive comparison
-            $('#userList li').each(function() {
-                var userName = $(this).find('span').text().toLowerCase(); // Get the user name from the list item and convert it to lowercase
-                if (userName.includes(searchText)) { // Check if the user name contains the search input value
-                    $(this).show(); // Show the user list item if it matches the search input value
-                } else {
-                    $(this).hide(); // Hide the user list item if it does not match the search input value
-                }
+            // Trigger search on keyup
+            $('#searchInput').on('keyup', function() {
+                performSearch();
             });
-        }
 
-        // Trigger search on keyup
-        $('#searchInput').on('keyup', function() {
-            performSearch();
-        });
-
-        // Trigger search on button click
-        $('#searchButton').on('click', function() {
-            performSearch();
-        });
+            // Trigger search on button click
+            $('#searchButton').on('click', function() {
+                performSearch();
+            });
 
 
         @endauth

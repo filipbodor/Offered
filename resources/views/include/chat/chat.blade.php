@@ -20,7 +20,7 @@
                 <div class="modal-body col-lg-12 chat-container p-0">
                     <div class="row m-0">
                         <!-- User List -->
-                        <div id="userListContainer" class="chat-user-list col-lg-4 col-md-4 col-sm-4 d-lg-block d-md-block d-sm-block d-none p-0">
+                        <div id="userListContainer" class="chat-user-list col-lg-4 col-md-12 col-sm-12 d-lg-block p-0">
                             <!-- Search Bar -->
                             <div class="p-2 d-flex align-items-center bg-light">
                                 <input type="text" id="searchInput" class="form-control border-0 rounded-lg me-2" placeholder="Hľadaj">
@@ -46,7 +46,7 @@
                         <!-- End User List -->
 
                         <!-- Chat Container -->
-                        <div class="col-lg-8 col-md-8 col-sm-8 chat" id="chatContainer">
+                        <div class="col-lg-8 col-md-12 col-sm-12 chat d-xl-block d-none" id="chatContainer">
                             <!-- Chat messages will be loaded here dynamically -->
                         </div>
                     </div>

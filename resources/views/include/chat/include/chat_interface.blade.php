@@ -4,7 +4,7 @@
 
     <!-- User Profile and Name -->
     <div class="d-flex align-items-center">
-        <button type="button" class="backToUserListBtn d-block d-sm-none" id="backToUserListBtn">
+        <button type="button" class="backToUserListBtn d-block d-lg-none" id="backToUserListBtn">
             <i class="bi bi-arrow-left"></i>
         </button>
 
