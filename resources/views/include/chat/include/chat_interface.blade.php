@@ -29,7 +29,7 @@
 <div class="bottom">
     <form class="chat-form" data-to-user-id="{{ $toUserId }}">
         <x-input type="text" class="form-control" id="message" name="message" placeholder="Enter message..." autocomplete="off"/>
-        <button type="button" class="custom-button">
+        <button type="submit" class="custom-button">
             <i class="fas fa-arrow-up"></i>
         </button>
 

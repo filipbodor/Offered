@@ -248,15 +248,4 @@ body.modal-open .chat-icon {
     font-size: 20px; /* Adjust icon size as needed */
 }
 
-/* Adjust arrow icon size and position as needed */
-
-float: right;
-display: inline-flex;
-text-align: center;
-cursor: pointer;
-border: 1px solid #484848;
-border-radius: 5px;
-margin: 3px;
-width: 2.35rem;
-height: 2.35rem;
 
