@@ -113,6 +113,29 @@
             });
 
 
+        function performSearch() {
+            var searchText = $('#searchInput').val().toLowerCase(); // Get the search input value and convert it to lowercase for case-insensitive comparison
+            $('#userList li').each(function() {
+                var userName = $(this).find('span').text().toLowerCase(); // Get the user name from the list item and convert it to lowercase
+                if (userName.includes(searchText)) { // Check if the user name contains the search input value
+                    $(this).show(); // Show the user list item if it matches the search input value
+                } else {
+                    $(this).hide(); // Hide the user list item if it does not match the search input value
+                }
+            });
+        }
+
+        // Trigger search on keyup
+        $('#searchInput').on('keyup', function() {
+            performSearch();
+        });
+
+        // Trigger search on button click
+        $('#searchButton').on('click', function() {
+            performSearch();
+        });
+
+
         @endauth
     });
 </script>

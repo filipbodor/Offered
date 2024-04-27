@@ -21,6 +21,13 @@
                     <div class="row m-0">
                         <!-- User List -->
                         <div id="userListContainer" class="chat-user-list col-lg-4 col-md-4 col-sm-4 d-lg-block d-md-block d-sm-block d-none p-0">
+                            <!-- Search Bar -->
+                            <div class="p-2 d-flex align-items-center bg-light">
+                                <input type="text" id="searchInput" class="form-control border-0 rounded-lg me-2" placeholder="Hľadaj">
+                                <button type="button" id="searchButton" class="btn bg-darkgreen rounded-lg"><i class="bi bi-search"></i></button>
+                            </div>
+
+                            <!-- User List -->
                             <ul id="userList">
                                 @foreach($users as $user)
                                     <li class="chat-user" data-user-id="{{ $user->id }}">
@@ -29,10 +36,13 @@
                                             <span>{{ $user->name }}</span>
                                         </div>
                                     </li>
-
                                 @endforeach
                             </ul>
                         </div>
+
+
+
+
                         <!-- End User List -->
 
                         <!-- Chat Container -->
