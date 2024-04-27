@@ -121,7 +121,7 @@
             // Handle user list item click on small screens
             $('#userList').on('click', '.chat-user', function() {
                 // Check if it's a small screen
-                if ($(window).width() < 960) {
+                if ($(window).width() < 1200) {
                     console.log('click');
                     // Show the chat interface
                     toggleChatView();
