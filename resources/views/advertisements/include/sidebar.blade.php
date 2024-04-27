@@ -1,10 +1,10 @@
 <div class="col-md-3">
     <div class="subcategory-sidebar subcategory-sticky-top">
-        <h1>Categories</h1>
+        <h1>Kategórie</h1>
         <ul class="">
             @foreach($categories as $cat)
                 <li>
-                    <a href="#!" class="custom-list-group-item category-list-group-item category-list-group-item-action {{ request()->route('category') == $cat->id && request()->route('subcategory') == null ? 'active' : '' }}" data-bs-toggle="collapse" data-bs-target="#subcategories-{{ $cat->id }}">
+                    <a href="#!" class="custom-list-group-item category-list-group-item category-list-group-item-action {{ request()->route('category') == $cat->id ? 'active expanded' : '' }}"  data-bs-toggle="collapse" data-bs-target="#subcategories-{{ $cat->id }}" onclick="collapseAllExceptOne(this)">
                         {{ $cat->name }}
                     </a>
                     <ul id="subcategories-{{ $cat->id }}" class="collapse {{ request()->route('category') == $cat->id ? 'show' : '' }}">
@@ -26,5 +26,4 @@
         </ul>
     </div>
 </div>
-
 @include('partials._side_bar_categories_script')
