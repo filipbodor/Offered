@@ -2,7 +2,7 @@
     <section class="search-sec">
         <div class="container-fluid">
             <div>
-                <h1>Nájdi ponuku</h1>
+                <h1 class="font-weight h3 ">Nájdi ponuku</h1>
             </div>
 
             <form action="{{ route('advertisements.search') }}" method="get" novalidate="novalidate">

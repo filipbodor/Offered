@@ -20,7 +20,7 @@
 
     @foreach($messages as $message)
         <div class="{{ $message->from_user_id == auth()->id() ? 'right' : 'left' }} message">
-            <p class="message-bg-{{ $message->from_user_id == auth()->id() ? 'green' : 'neutral' }}">{{ $message->content }}</p>
+            <p class="text-break message-bg-{{ $message->from_user_id == auth()->id() ? 'green' : 'neutral' }}">{{ $message->content }}</p>
         </div>
     @endforeach
 </div>

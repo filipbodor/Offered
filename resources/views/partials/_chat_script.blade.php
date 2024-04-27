@@ -24,7 +24,7 @@
             channel.bind('message', function(data) {
                 console.log(data, userId, selectedUserId);
                 if (data.toUserId === userId && data.fromUserId === selectedUserId) {
-                    let messageHTML = `<div class="left message"><p class="message-bg-neutral">${data.content}</p></div>`;
+                    let messageHTML = `<div class="left message"><p class="text-break message-bg-neutral">${data.content}</p></div>`;
                     $(".messages").append(messageHTML);
                     scrollDownMessages();
                 }
@@ -51,7 +51,7 @@
                 }).done(function(res) {
                     // Append message to chat and clear input field
                     let messageHTML = `<div class="right message">
-                                <p class="message-bg-green">${message}</p>
+                                <p class="text-break message-bg-green">${message}</p>
                             </div>`;
                     $(".messages").append(messageHTML);
                     $("#message").val('');
