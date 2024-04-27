@@ -7,7 +7,7 @@
 
         <!-- Chat Modal -->
     <div class="modal fade" id="chatModal" tabindex="-1" aria-labelledby="chatModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
+        <div class="modal-dialog modal-xl chat-modal-dialog">
             <div class="modal-content chat-modal-container">
 
                 <!-- Modal Header -->
