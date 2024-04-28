@@ -1338,7 +1338,7 @@ class AdvertisementsTableSeeder extends Seeder
                         'user_id' => $users->random()->id,
                         'category_id' => $category->id,
                         'subcategory_id' => $subcategory->id,
-                        'location_id' => rand(1, 11224),
+                        'location_id' => rand(1, 2780),
                         'created_at' => now(),
                         'updated_at' => now(),
                     ]);
