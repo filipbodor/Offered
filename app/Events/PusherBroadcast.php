@@ -14,13 +14,15 @@ class PusherBroadcast implements ShouldBroadcast
 {
     public $fromUserId;
     public $toUserId;
+    public $advertisementId;
     public $content;
     public $fromUserProfilePicUrl;
 
-    public function __construct($fromUserId, $toUserId, $content, $fromUserProfilePicUrl)
+    public function __construct($fromUserId, $toUserId, $advertisementId, $content, $fromUserProfilePicUrl)
     {
         $this->fromUserId = $fromUserId;
         $this->toUserId = $toUserId;
+        $this->advertisementId = $advertisementId;
         $this->content = $content;
         $this->fromUserProfilePicUrl = $fromUserProfilePicUrl;
     }

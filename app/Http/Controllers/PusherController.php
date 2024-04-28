@@ -22,6 +22,7 @@ class PusherController extends Controller
         $request->validate([
             'message' => 'required|string',
             'to_user_id' => 'required|integer',
+            'advertisement_id' => 'required|integer',
         ]);
 
         $fromUser = auth()->user();
@@ -30,10 +31,11 @@ class PusherController extends Controller
         $message = Message::create([
             'from_user_id' => $fromUser->id,
             'to_user_id' => $request->to_user_id,
+            'advertisement_id' => $request->advertisement_id,
             'content' => $request->message
         ]);
 
-        broadcast(new PusherBroadcast($message->from_user_id, $message->to_user_id, $message->content, $fromUserProfilePicUrl))->toOthers();
+        broadcast(new PusherBroadcast($message->from_user_id, $message->to_user_id, $message->advertisement_id, $message->content, $fromUserProfilePicUrl))->toOthers();
 
         return response()->json(['status' => 'Message sent']);
     }
@@ -49,6 +51,7 @@ class PusherController extends Controller
         $message = new Message();
         $message->from_user_id = auth()->id();
         $message->to_user_id = $request->input('to_user_id');
+        $message->advertisement_id = $request->input('advertisement_id');
         $message->content = $request->input('message');
         $message->save();
 

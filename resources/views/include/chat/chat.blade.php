@@ -1,8 +1,7 @@
 @auth()
     @php
         $currentUserId = auth()->id();
-        $users = \App\Http\Controllers\ChatController::getUserList($currentUserId);
-        // $users = \App\Models\User::all();
+        $userAdvertisements = \App\Http\Controllers\ChatController::getUserList($currentUserId);
     @endphp
 
         <!-- Chat Modal -->
@@ -29,14 +28,17 @@
 
                             <!-- User List -->
                             <ul id="userList">
-                                @foreach($users as $user)
-                                    <li class="chat-user" data-user-id="{{ $user->id }}">
-                                        <div class="d-flex align-items-center">
-                                            <img class="chat-list-profile-picture me-2" src="{{ $user->profile_photo_url }}" alt="Profile Picture">
-                                            <span>{{ $user->name }}</span>
-                                        </div>
-                                    </li>
+                                @foreach($userAdvertisements as $userId => $advertisementIds)
+                                    @foreach($advertisementIds as $advertisementId)
+                                        <li class="chat-user" data-user-id="{{ $userId }}" data-advertisement-id="{{ $advertisementId }}">
+                                            <div class="d-flex align-items-center">
+                                                <img class="chat-list-profile-picture me-2" src="{{ \App\Models\User::find($userId)->profile_photo_url }}" alt="Profile Picture">
+                                                <span>{{ \App\Models\User::find($userId)->name }} - {{ \App\Models\Advertisement::find($advertisementId)->title }}</span>
+                                            </div>
+                                        </li>
+                                    @endforeach
                                 @endforeach
+
                             </ul>
                         </div>
 
@@ -46,7 +48,7 @@
                         <!-- End User List -->
 
                         <!-- Chat Container -->
-                        <div class="col-lg-8 col-md-12 col-sm-12 chat d-xl-block d-none" id="chatContainer">
+                        <div class="col-lg-8 col-md-12 col-sm-12 chat d-lg-block d-none" id="chatContainer">
                             <!-- Chat messages will be loaded here dynamically -->
                         </div>
                     </div>
