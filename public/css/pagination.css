@@ -1,19 +1,1 @@
 /* pagination */
-
-.pagination-slider {
-    text-align: center;
-
-}
-
-.pagination-slider .pagination {
-    display: inline-block;
-
-}
-
-.pagination li {
-    display: inline-block;
-}
-
-.page-item{
-    color: #006b18;
-}

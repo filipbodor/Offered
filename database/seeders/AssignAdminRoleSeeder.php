@@ -14,7 +14,7 @@ class AssignAdminRoleSeeder extends Seeder
 
         if ($adminRole) {
             // Update specific users with the 'admin' role
-            User::whereIn('id', [21]) // Replace with the user IDs you want to make admin
+            User::whereIn('id', [2]) // Replace with the user IDs you want to make admin
             ->update(['role_id' => $adminRole->id]);
         }
     }
