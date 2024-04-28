@@ -5,7 +5,7 @@
             <div class="col-md-8">
                 <div class="card mb-5">
                     <div class="card-header d-flex align-items-center justify-content-between">
-                        <h2 class="card-title">{{ $advertisement->title }}</h2>
+                        <h2 class="text-break card-title">{{ $advertisement->title }}</h2>
                         <div class="average-rating d-flex align-items-center">
                             <h5 class="mb-0 me-2"><span class="text-warning">{{ $averageRating }}</span></h5>
                             @for ($i = 1; $i <= 5; $i++)
@@ -20,7 +20,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <p class="card-text mb-3">{{ $advertisement->description }}</p>
+                        <p class="text-break card-text mb-3">{{ $advertisement->description }}</p>
                         <div class="mb-3">
                             <strong>Meno:</strong>
                             <a href="{{ route('profile.show', $advertisement->user->id) }}">{{ $advertisement->user->name }}</a>
