@@ -12,12 +12,15 @@ class CreateMessagesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('from_user_id');
             $table->unsignedBigInteger('to_user_id');
+            $table->unsignedBigInteger('advertisement_id')->nullable();
             $table->text('content');
             $table->timestamps();
 
             // Define foreign key constraints if needed
             $table->foreign('from_user_id')->references('id')->on('users');
             $table->foreign('to_user_id')->references('id')->on('users');
+            $table->foreign('advertisement_id')->references('id')->on('advertisements')->onDelete('cascade');
+
         });
     }
 
