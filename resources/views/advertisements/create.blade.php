@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="container mt-5">
+    <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <h2 class="mb-4 text-center h2">Vytvoriť ponuku</h2>
