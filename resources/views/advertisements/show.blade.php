@@ -20,14 +20,16 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <p class="card-text">{{ $advertisement->description }}</p>
+                        <p class="card-text mb-3">{{ $advertisement->description }}</p>
                         <div class="mb-3">
                             <strong>Meno:</strong>
                             <a href="{{ route('profile.show', $advertisement->user->id) }}">{{ $advertisement->user->name }}</a>
-                            <!-- Chat Icon -->
-                            <button type="button" class="btn ms-2 start-chat-icon" data-bs-toggle="modal" data-bs-target="#chatModal" data-user-id="{{ $advertisement->user->id }}">
-                                <i class="fas fa-comments"></i>
-                            </button>
+                            @auth()
+                                <!-- Chat Icon -->
+                                <button type="button" class="btn ms-2 start-chat-icon" data-bs-toggle="modal" data-bs-target="#chatModal" data-user-id="{{ $advertisement->user->id }}">
+                                    <i class="fas fa-comments"></i>
+                                </button>
+                            @endauth
                         </div>
                         <div class="mb-3"><strong>Kategória:</strong> {{ \App\Models\Category::find($advertisement->category_id)->name }}</div>
                         <div class="mb-3"><strong>Lokalita:</strong> {{ \App\Models\Location::find($advertisement->location_id)->name }}</div>

@@ -1,36 +1,17 @@
 <div class="footer-custom">
     <footer class="text-lg-start text-muted farba card-shadow">
         <div class="container p-4">
-            <div class="row">
+            <div class="row justify-content-center"> <!-- Center align the columns -->
                 <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
                     <h5 class="text-uppercase text-black mb-4">O nás</h5>
                     <p class="text-black">OFFERED je vaše jediné miesto na vyhľadávanie a ponúkanie služieb. So zameraním na komunitu a kvalitu sa snažíme efektívne spájať ľudí a podniky.</p>
                     <p class="text-black">Pridajte sa k nám pri budovaní siete dôvery a profesionality.</p>
                 </div>
 
-                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase text-black mb-4">Objavuj</h5>
-                    <ul class="list-unstyled text-black">
-                        <li><a href="http://127.0.0.1:8000" class="text-reset bezpodciar">Domov</a></li>
-                        <li><a href="http://127.0.0.1:8000/advertisements/create" class="text-reset bezpodciar">Servis</a></li>
-                        <li><a href="#!" class="text-reset bezpodciar">Kontakt</a></li>
-                    </ul>
-                </div>
-
                 <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase text-black mb-4">Servis</h5>
+                    <h5 class="text-uppercase text-black mb-4">Kontakt & Sleduj nás</h5>
                     <ul class="list-unstyled text-black">
-                        <li><a href="#!" class="text-reset">Craftsmanship</a></li>
-                        <li><a href="#!" class="text-reset">Beauty & Care</a></li>
-                        <li><a href="#!" class="text-reset">IT & Digital</a></li>
-                        <li><a href="#!" class="text-reset">Education & Tutoring</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase text-black mb-4">Kontakt & Sleduj na</h5>
-                    <ul class="list-unstyled text-black">
-                        <li><i class="fas fa-map-marker-alt me-2"></i>Plzenska 1, Moj hud S3 VOLE</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i>Plzenská 1, SPŠE - Prešov</li>
                         <li><i class="fas fa-envelope me-2 font-weight-bold"></i><a href="mailto:contact@offered.com" class="text-reset bezpodciar">fabikfilipspse@gmail.com </a></li>
                         <li><i class="fas fa-phone me-2"></i>+421 944 192 111</li>
                         <li class="odkazy">
@@ -52,19 +33,13 @@
                         </li>
                     </ul>
                 </div>
-
-
-
-
-                <div class="row">
-                    <div class="col-12 mt-3">
-                        <div class="time-weather-wrapper color-black text-center">
-                            <p id="current-time">Aktualný čas: <span class="time">Loading...</span></p>
-                        </div>
+            </div>
+            <div class="row justify-content-center"> <!-- Center align the time -->
+                <div class="col-12 mt-3">
+                    <div class="time-weather-wrapper color-black text-center">
+                        <p id="current-time">Aktualný čas: <span class="time">Načitávanie...</span></p>
                     </div>
                 </div>
-
-
             </div>
         </div>
 
@@ -73,15 +48,6 @@
         </div>
     </footer>
 </div>
-
-
-
-
-
-
-
-
-
 
 <script>
     // Function to update the time every second
@@ -95,5 +61,4 @@
         document.querySelector('.time').textContent = timeStr;
     }
     setInterval(updateTime, 1000); // Update the time every second
-
 </script>
