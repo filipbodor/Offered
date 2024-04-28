@@ -11,7 +11,7 @@
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h5 class="modal-title" id="chatModalLabel">Chat</h5>
+                    <h5 class="modal-title" id="chatModalLabel">Čet</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 

@@ -1,4 +1,3 @@
-
 <div class="top">
     <div class="d-flex align-items-center">
         <button type="button" class="backToUserListBtn d-block d-lg-none" id="backToUserListBtn">
@@ -19,7 +18,7 @@
 
 <div class="bottom">
     <form class="chat-form" data-to-user-id="{{ $toUserId }}" data-advertisement-id="{{ $advertisementId }}"> <!-- Add data-advertisement-id attribute -->
-        <x-input type="text" class="form-control" id="message" name="message" placeholder="Enter message..." autocomplete="off"/>
+        <x-input type="text" class="form-control" id="message" name="message" placeholder="Zadajte správu..." autocomplete="off"/>
         <button type="submit" class="custom-button">
             <i class="fas fa-arrow-up"></i>
         </button>
@@ -35,7 +34,7 @@
 
     // Attach event listener to the back button
     $('#backToUserListBtn').on('click', function() {
-        console.log('click');
+        console.log('kliknutie');
         toggleChatView();
     });
 
