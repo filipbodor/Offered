@@ -13,7 +13,7 @@
                         @include('advertisements.include.advertisement_card')
                     @endforeach
                 </div>
-                <div class="row mt-4 mb-4 col-md-10">
+                <div class="row mt-4 mb-4 col-xl-10">
                     <div class="pagination-slider">
                         {{ $advertisements->links() }}
                     </div>

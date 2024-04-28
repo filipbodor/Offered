@@ -1,4 +1,4 @@
-<div class="col-md-10 mb-1 clickable-card" data-href="{{ route('advertisements.show', $advertisement->id) }}" style="cursor: pointer">
+<div class="col-xl-10 mb-1 clickable-card" data-href="{{ route('advertisements.show', $advertisement->id) }}" style="cursor: pointer">
     <div class="card position-relative card-shadow rounded-4 ">
         <div class="row no-gutters">
             <div class="col-md-8">
@@ -7,12 +7,9 @@
                     <p class="card-text">{{ $advertisement->description }}</p>
                 </div>
             </div>
-            <div class="col-md-4 bg-light">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Kategória: {{ \App\Models\Category::find($advertisement->category_id)->name }}</li>
-                    <li class="list-group-item">Lokalita: {{ \App\Models\Location::find($advertisement->location_id)->name }}</li>
+            <div class="col-md-4">
+                <ul class="list-group list-group-flush rounded-4">
                     <li class="list-group-item">
-                        Hodnotenie:
                         @php $rating = round($advertisement->ratings->avg('rating') * 2) / 2; @endphp
                         @foreach(range(1,5) as $i)
                             @if($rating > 0.5)
@@ -26,6 +23,8 @@
                         @endforeach
                         ({{ round($advertisement->ratings->avg('rating') * 10) / 10}})
                     </li>
+                    <li class="list-group-item">{{ \App\Models\Category::find($advertisement->category_id)->name }}</li>
+                    <li class="list-group-item">{{ \App\Models\Location::find($advertisement->location_id)->name }}</li>
                 </ul>
                 <div class="card-body">
                     <div class="flex-row align-items-center justify-content-start">
@@ -44,7 +43,7 @@
                             @else
                                 <a href="{{ route('advertisements.edit', $advertisement->id) }}" class="btn btn-secondary btn-sm me-2 mb-2">Upraviť</a>
                             @endif
-                            @if(auth()->user()->role->name === 'admin')
+                            @if(auth()->user()->role->name === 'admin' || auth()->user()->id === $advertisement->user_id)
                                 <form action="{//{ route('advertisements.destroy', $advertisement->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')

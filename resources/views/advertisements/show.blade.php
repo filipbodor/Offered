@@ -25,10 +25,12 @@
                             <strong>Meno:</strong>
                             <a href="{{ route('profile.show', $advertisement->user->id) }}">{{ $advertisement->user->name }}</a>
                             @auth()
-                                <!-- Chat Icon -->
-                                <button type="button" class="btn ms-2 start-chat-icon" data-bs-toggle="modal" data-bs-target="#chatModal" data-user-id="{{ $advertisement->user->id }}">
-                                    <i class="fas fa-comments"></i>
-                                </button>
+                                @if(auth()->user()->id !== $advertisement->user_id)
+                                    <!-- Chat Icon -->
+                                    <button type="button" class="btn ms-2 start-chat-icon" data-bs-toggle="modal" data-bs-target="#chatModal" data-user-id="{{ $advertisement->user->id }}">
+                                        <i class="fas fa-comments"></i>
+                                    </button>
+                                @endif
                             @endauth
                         </div>
                         <div class="mb-3"><strong>Kategória:</strong> {{ \App\Models\Category::find($advertisement->category_id)->name }}</div>
