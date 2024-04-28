@@ -2,7 +2,7 @@
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <h2 class="mb-4">Vytvoriť ponuku</h2>
+                <h2 class="mb-4 text-center h2">Vytvoriť ponuku</h2>
                 <form method="POST" action="{{ route('advertisements.store') }}" class="p-4 border rounded shadow-sm">
                     @csrf
 
