@@ -46,7 +46,11 @@
                     <i class="fas fa-comments"></i>
                 </button>
 
+                @include('include.unverified_user_alert')
             @endauth
+
+
+
         </main>
     </div>
     </body>

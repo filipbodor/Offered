@@ -48,13 +48,13 @@
                                 </x-dropdown-link>
 
                                 <x-dropdown-link :href="auth()->user()->hasVerifiedEmail() ? route('advertisements.create') : '#'"
-                                                 :disabled="!auth()->user()->hasVerifiedEmail()">
+                                                 :disabled="!auth()->user()->hasVerifiedEmail()"
+                                                 data-bs-toggle="modal"
+                                                 data-bs-target="#emailVerificationModal">
                                     {{ __('Ponúknuť') }}
-                                    <!-- Reminder message -->
-                                    @unless(auth()->user()->hasVerifiedEmail())
-                                        <span class="text-sm text-red-600 ml-1">{{ __('(Prosím, overte svoju e-mailovú adresu, aby ste mohli odblokovať túto funkciu)') }}</span>
-                                    @endunless
                                 </x-dropdown-link>
+
+
 
 
 
@@ -135,7 +135,10 @@
                         {{ __('Profil') }}
                     </x-responsive-nav-link>
 
-                    <x-responsive-nav-link href="{{ route('advertisements.create') }}" :active="request()->routeIs('advertisements.create')">
+                    <x-responsive-nav-link :href="auth()->user()->hasVerifiedEmail() ? route('advertisements.create') : '#'"
+                                     :disabled="!auth()->user()->hasVerifiedEmail()"
+                                     data-bs-toggle="modal"
+                                     data-bs-target="#emailVerificationModal" :active="request()->routeIs('advertisements.create')">
                         {{ __('Ponúknuť') }}
                     </x-responsive-nav-link>
 
