@@ -49,8 +49,8 @@
 
                                 <x-dropdown-link :href="auth()->user()->hasVerifiedEmail() ? route('advertisements.create') : '#'"
                                                  :disabled="!auth()->user()->hasVerifiedEmail()"
-                                                 data-bs-toggle="modal"
-                                                 data-bs-target="#emailVerificationModal">
+                                                 :data-bs-toggle="auth()->user()->hasVerifiedEmail() ? '#' : 'modal'"
+                                                 :data-bs-target="auth()->user()->hasVerifiedEmail() ? '#' : '#emailVerificationModal'">
                                     {{ __('Ponúknuť') }}
                                 </x-dropdown-link>
 
@@ -137,8 +137,8 @@
 
                     <x-responsive-nav-link :href="auth()->user()->hasVerifiedEmail() ? route('advertisements.create') : '#'"
                                      :disabled="!auth()->user()->hasVerifiedEmail()"
-                                     data-bs-toggle="modal"
-                                     data-bs-target="#emailVerificationModal" :active="request()->routeIs('advertisements.create')">
+                                     :data-bs-toggle="auth()->user()->hasVerifiedEmail() ? '#' : 'modal'"
+                                     :data-bs-target="auth()->user()->hasVerifiedEmail() ? '#' : '#emailVerificationModal'" :active="request()->routeIs('advertisements.create')">
                         {{ __('Ponúknuť') }}
                     </x-responsive-nav-link>
 

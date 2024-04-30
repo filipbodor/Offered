@@ -27,9 +27,23 @@
                             @auth()
                                 @if(auth()->user()->id !== $advertisement->user_id)
                                     <!-- Chat Icon -->
-                                    <button type="button" class="btn ms-2 start-chat-icon" data-bs-toggle="modal" data-bs-target="#chatModal" data-user-id="{{ $advertisement->user->id }}" data-advertisement-id="{{ $advertisement->id }}">
-                                        <i class="fas fa-comments"></i>
-                                    </button>
+                                    @if(auth()->user()->hasVerifiedEmail())
+                                        <!-- Button to start chat -->
+                                        <button type="button" class="btn ms-2 start-chat-icon"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#chatModal"
+                                                data-user-id="{{ $advertisement->user->id }}"
+                                                data-advertisement-id="{{ $advertisement->id }}">
+                                            <i class="fas fa-comments"></i>
+                                        </button>
+                                    @else
+                                        <!-- Button to open email verification modal -->
+                                        <button type="button" class="btn ms-2 start-chat-icon"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#emailVerificationModal">
+                                            <i class="fas fa-comments"></i>
+                                        </button>
+                                    @endif
                                 @endif
                             @endauth
                         </div>

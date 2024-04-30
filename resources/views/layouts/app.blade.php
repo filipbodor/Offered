@@ -42,9 +42,21 @@
 
             @auth
                 @include('include.chat.chat')
-                <button type="button" class="btn bg-darkgreen chat-icon" data-bs-toggle="modal" data-bs-target="#chatModal">
-                    <i class="fas fa-comments"></i>
-                </button>
+                @if(auth()->user()->hasVerifiedEmail())
+                    <!-- Button to open chat modal -->
+                    <button type="button" class="btn bg-darkgreen chat-icon"
+                            data-bs-toggle="modal"
+                            data-bs-target="#chatModal">
+                        <i class="fas fa-comments"></i>
+                    </button>
+                @else
+                    <!-- Button to open email verification modal -->
+                    <button type="button" class="btn bg-darkgreen chat-icon"
+                            data-bs-toggle="modal"
+                            data-bs-target="#emailVerificationModal">
+                        <i class="fas fa-comments"></i>
+                    </button>
+                @endif
 
                 @include('include.unverified_user_alert')
             @endauth
