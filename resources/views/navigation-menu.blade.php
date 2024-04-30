@@ -47,11 +47,18 @@
                                     {{ __('Profil') }}
                                 </x-dropdown-link>
 
-                                <x-dropdown-link href="{{ route('advertisements.create') }}">
+                                <x-dropdown-link :href="auth()->user()->hasVerifiedEmail() ? route('advertisements.create') : '#'"
+                                                 :disabled="!auth()->user()->hasVerifiedEmail()">
                                     {{ __('Ponúknuť') }}
+                                    <!-- Reminder message -->
+                                    @unless(auth()->user()->hasVerifiedEmail())
+                                        <span class="text-sm text-red-600 ml-1">{{ __('(Prosím, overte svoju e-mailovú adresu, aby ste mohli odblokovať túto funkciu)') }}</span>
+                                    @endunless
                                 </x-dropdown-link>
 
-                                @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
+
+
+                            @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                     <x-dropdown-link href="{{ route('api-tokens.index') }}">
                                         {{ __('API tokeny') }}
                                     </x-dropdown-link>

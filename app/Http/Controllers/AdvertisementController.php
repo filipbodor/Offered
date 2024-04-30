@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Advertisement;
+use App\Models\FavoriteAdvertisement;
 use App\Models\Location;
 use App\Models\Subcategory;
 class AdvertisementController extends Controller
@@ -226,6 +227,23 @@ class AdvertisementController extends Controller
     {
         $query = Advertisement::query();
 
+        // Set default sorting options if not provided
+        $request->merge([
+            'rating_sort' => $request->filled('rating_sort') ? $request->rating_sort : 'rating_asc',
+            'newest_sort' => $request->filled('newest_sort') ? $request->newest_sort : 'newest',
+        ]);
+
+        // Filter by advertisement type
+        if ($request->filled('advertisement_type')) {
+            if ($request->advertisement_type == 'my') {
+                $query->where('user_id', auth()->id());
+            } elseif ($request->advertisement_type == 'favorites') {
+                $favoriteAdvertisementIds = FavoriteAdvertisement::where('user_id', auth()->id())
+                    ->pluck('advertisement_id');
+                $query->whereIn('id', $favoriteAdvertisementIds);
+            }
+        }
+
         // Handle rating sort
         if ($request->filled('rating_sort')) {
             $direction = $request->rating_sort == 'rating_asc' ? 'asc' : 'desc';
@@ -243,4 +261,5 @@ class AdvertisementController extends Controller
 
         return view('advertisements.index', compact('advertisements', 'categories'));
     }
+
 }

@@ -15,7 +15,7 @@
                     </div>
                     <div class="row mt-4 mb-4 col-xl-10">
                         <div class="pagination-slider">
-                            {{ $advertisements->links() }}
+                            {{ $advertisements->appends(request()->query())->links() }}
                         </div>
                     </div>
                 </div>
